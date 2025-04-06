@@ -35,6 +35,8 @@
   },
   "resources": [
     {"id":{"name":"window_parent_class","path":"scripts/window_parent_class/window_parent_class.yy",},},
+    {"id":{"name":"enums","path":"scripts/enums/enums.yy",},},
+    {"id":{"name":"macro_definitions","path":"scripts/macro_definitions/macro_definitions.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
   ],
   "RoomOrderNodes": [

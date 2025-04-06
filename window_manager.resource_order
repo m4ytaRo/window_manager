@@ -16,5 +16,8 @@
     {"name":"Extensions","order":14,"path":"folders/Extensions.yy",},
     {"name":"Particle Systems","order":15,"path":"folders/Particle Systems.yy",},
   ],
-  "ResourceOrderSettings": [],
+  "ResourceOrderSettings": [
+    {"name":"enums","order":2,"path":"scripts/enums/enums.yy",},
+    {"name":"macro_definitions","order":1,"path":"scripts/macro_definitions/macro_definitions.yy",},
+  ],
 }
