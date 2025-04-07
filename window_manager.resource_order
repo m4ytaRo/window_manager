@@ -19,5 +19,6 @@
   "ResourceOrderSettings": [
     {"name":"enums","order":2,"path":"scripts/enums/enums.yy",},
     {"name":"macro_definitions","order":1,"path":"scripts/macro_definitions/macro_definitions.yy",},
+    {"name":"window_fill_containers","order":3,"path":"scripts/window_fill_containers/window_fill_containers.yy",},
   ],
 }
