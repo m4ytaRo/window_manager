@@ -59,6 +59,24 @@ function wms_window (_name, _coord_structure) constructor {
 		//always check whether surfaces exists or not
 		
 	}
+	
+	static surface_draw = function (_argument) {
+		//function just draws surface depending on _argument
+		switch (_argument) {
+			case WINDOW_SURFACES.MAIN_SURFACE:
+				for (var i = 0; i < len(main_container); ++i) {
+					
+				}
+			break
+			case WINDOW_SURFACES.WORKFIELD_SURFACE:
+				
+			break
+			case WINDOW_SURFACES.SINGLE_OBJECT_SURFACE:
+				
+			break
+		}
+		
+	}
 	#endregion
 	
 	#region public methods
@@ -66,13 +84,49 @@ function wms_window (_name, _coord_structure) constructor {
 		
 	}
 	static draw_update_surface = function (_argument, _no_excuses) {
-		//function will redraw surface if it doesnt exist
+		
+		//function will manupulate creating/redrawing surfaces
 		//if parameter _no_excuses is true, surface will be updated guaranteed
 		
+		if (_no_excuses == undefined)
+			_no_excuses = false;
 		
+		switch (_argument) {
+			case WINDOW_SURFACES.MAIN_SURFACE:
+				if (!_no_excuses) {
+					if (surface_exists(main_surface))
+						return;
+				}
+				main_surface = surface_create(xlen, ylen);
+				surface_set_target(main_surface);
+				
+				surface_reset_target();
+			break
+			
+			case WINDOW_SURFACES.WORKFIELD_SURFACE:
+				if (!_no_excuses) {
+					if (surface_exists(workfield_surface))
+						return;
+				}
+				workfield_surface = surface_create(xlen, ylen);
+				surface_set_target(workfield_surface);
+				
+				surface_reset_target();
+			break
+			
+			case WINDOW_SURFACES.SINGLE_OBJECT_SURFACE:
+				if (!_no_excuses) {
+					if (surface_exists(single_object_surface))
+						return;
+				}
+				single_object_surface = surface_create(xlen, ylen);
+				surface_set_target(single_object_surface);
+				
+				surface_reset_target();
+			break
+		}
 		
 	}
-	
 	static update = function (_no_excuses) {
 		if (_no_excuses == undefined)
 			_no_excuses = false;

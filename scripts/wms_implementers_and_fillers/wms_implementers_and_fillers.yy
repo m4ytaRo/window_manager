@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "window_fill_containers",
+  "name": "wms_implementers_and_fillers",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
