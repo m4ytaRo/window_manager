@@ -41,6 +41,7 @@
     {"id":{"name":"macro_definitions","path":"scripts/macro_definitions/macro_definitions.yy",},},
     {"id":{"name":"wms_class_button","path":"scripts/wms_class_button/wms_class_button.yy",},},
     {"id":{"name":"wms_implementers_and_fillers","path":"scripts/wms_implementers_and_fillers/wms_implementers_and_fillers.yy",},},
+    {"id":{"name":"sp_arrow","path":"sprites/sp_arrow/sp_arrow.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
   ],
   "RoomOrderNodes": [
