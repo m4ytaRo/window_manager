@@ -157,5 +157,5 @@ function wms_window (_name, _coord_structure) constructor {
 	
 	#endregion
 	
-
 }
+

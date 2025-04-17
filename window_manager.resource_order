@@ -19,7 +19,9 @@
   "ResourceOrderSettings": [
     {"name":"enums","order":2,"path":"scripts/enums/enums.yy",},
     {"name":"wms_helper_functions","order":4,"path":"scripts/wms_helper_functions/wms_helper_functions.yy",},
+    {"name":"wms_class_surface_reference_handler","order":6,"path":"scripts/wms_class_surface_reference_handler/wms_class_surface_reference_handler.yy",},
     {"name":"macro_definitions","order":1,"path":"scripts/macro_definitions/macro_definitions.yy",},
+    {"name":"wms_class_button","order":5,"path":"scripts/wms_class_button/wms_class_button.yy",},
     {"name":"wms_implementers_and_fillers","order":3,"path":"scripts/wms_implementers_and_fillers/wms_implementers_and_fillers.yy",},
   ],
 }

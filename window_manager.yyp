@@ -34,10 +34,12 @@
     "IDEVersion": "2023.11.1.129",
   },
   "resources": [
-    {"id":{"name":"window_parent_class","path":"scripts/window_parent_class/window_parent_class.yy",},},
+    {"id":{"name":"wms_class_window","path":"scripts/wms_class_window/wms_class_window.yy",},},
     {"id":{"name":"enums","path":"scripts/enums/enums.yy",},},
     {"id":{"name":"wms_helper_functions","path":"scripts/wms_helper_functions/wms_helper_functions.yy",},},
+    {"id":{"name":"wms_class_surface_reference_handler","path":"scripts/wms_class_surface_reference_handler/wms_class_surface_reference_handler.yy",},},
     {"id":{"name":"macro_definitions","path":"scripts/macro_definitions/macro_definitions.yy",},},
+    {"id":{"name":"wms_class_button","path":"scripts/wms_class_button/wms_class_button.yy",},},
     {"id":{"name":"wms_implementers_and_fillers","path":"scripts/wms_implementers_and_fillers/wms_implementers_and_fillers.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
   ],
