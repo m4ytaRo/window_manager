@@ -106,6 +106,72 @@ function draw_rectangle_custom(x1_, y1_, x2_, y2_, color, width) {
 	draw_line_width(x1_, y2_, x1_, y1_, width)
 	draw_set_color(c_white)
 }
+
+function draw_rectangle_sprited_custom (_structure, _coords) {
+	
+	var local_sprite = _structure.local_sprite;
+	
+	var lp_width = sprite_get_width(local_sprite);
+	var lp_height = sprite_get_height(local_sprite);
+	
+	var scale = _structure.scale;
+	
+	var ls_w = lp_width * scale;
+	var ls_h = lp_height * scale;
+	
+	var lt_corner_index = _structure.lt_corner_index;
+	var rt_corner_index = _structure.rt_corner_index;
+	var rb_corner_index = _structure.rb_corner_index;
+	var lb_corner_index = _structure.lb_corner_index;
+	
+	var b_side_index = _structure.b_side_index;
+	var r_side_index = _structure.r_side_index;
+	var t_side_index = _structure.t_side_index;
+	var l_side_index = _structure.l_side_index;
+	
+	
+	
+	var localX = _coords.x;
+	var localY = _coords.y;
+	var localXLen = max(_coords.xlen, ls_w);
+	var localYLen = max(_coords.ylen, ls_h);
+	
+	var background_sprite = _structure.background_sprite
+	var grad_clr_01 = c_black
+	var grad_clr_02 = c_black
+	var grad_clr_03 = c_black
+	var grad_clr_04 = c_black
+	if (background_sprite == undefined) {
+		grad_clr_01 = _structure.gradient_settings.grad_clr_01
+		grad_clr_02 = _structure.gradient_settings.grad_clr_02
+		grad_clr_03 = _structure.gradient_settings.grad_clr_03
+		grad_clr_04 = _structure.gradient_settings.grad_clr_04
+	}
+	
+
+	
+	if (background_sprite == undefined) {
+		draw_rectangle_color(localX, localY, localX + localXLen - 2, localY + localYLen - 2, grad_clr_01, grad_clr_02, grad_clr_03, grad_clr_04, false);
+	}
+	var additionalX =  (localXLen < 2*ls_w) ? 1 : 2
+	var additionalY =  (localYLen < 2*ls_h) ? 1 : 2
+	for (var i = 0; i < ((localXLen - ls_w * 2) div (ls_w) + additionalX); ++ i) {
+		draw_sprite_ext(local_sprite, t_side_index, ls_w/2 + localX + i  *ls_w, localY + ls_h / 2, scale, scale, 0, c_white, 1);
+	}
+	for (var i = 0; i < ((localXLen - ls_w * 2) div (ls_w) + additionalX); ++ i) {
+		draw_sprite_ext(local_sprite, b_side_index, ls_w/2 + localX + i * ls_w, localY + localYLen - ls_h / 2, scale, scale, 0, c_white, 1);
+	}
+	for (var i = 0; i < ((localYLen - ls_h * 2) div (ls_h) + additionalY); ++ i) {
+		draw_sprite_ext(local_sprite, l_side_index, localX + ls_w / 2, localY + ls_h / 2 + i * ls_h, scale, scale, 0, c_white, 1);
+	}
+	for (var i = 0; i < ((localYLen - ls_h * 2) div (ls_h) + additionalY); ++ i) {
+		draw_sprite_ext(local_sprite, r_side_index, localX + localXLen - ls_w/2, localY + ls_h / 2 + i * ls_h, scale, scale, 0, c_white, 1);
+	}
+	draw_sprite_ext(local_sprite, lt_corner_index, localX + lp_width/2*scale, localY + lp_height/2*scale, scale, scale, 0, c_white, 1);
+	draw_sprite_ext(local_sprite, rt_corner_index, localX + localXLen - lp_width/2*scale, localY + lp_height/2*scale, scale, scale, 0, c_white, 1);
+	draw_sprite_ext(local_sprite, lb_corner_index, localX + lp_width/2*scale, localY + localYLen - lp_height/2*scale, scale, scale, 0, c_white, 1);
+	draw_sprite_ext(local_sprite, rb_corner_index, localX + localXLen - lp_width/2*scale,localY + localYLen - lp_height/2*scale, scale, scale, 0, c_white, 1);
+}
 	
 function get_integer_from_string (_string) {
 	var str_digits = string_digits(_string)

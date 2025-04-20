@@ -23,5 +23,6 @@
     {"name":"macro_definitions","order":1,"path":"scripts/macro_definitions/macro_definitions.yy",},
     {"name":"wms_class_button","order":5,"path":"scripts/wms_class_button/wms_class_button.yy",},
     {"name":"wms_implementers_and_fillers","order":3,"path":"scripts/wms_implementers_and_fillers/wms_implementers_and_fillers.yy",},
+    {"name":"sp_standard_button_borders","order":1,"path":"sprites/sp_standard_button_borders/sp_standard_button_borders.yy",},
   ],
 }
