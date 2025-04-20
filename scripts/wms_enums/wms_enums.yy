@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "enums",
+  "name": "wms_enums",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {

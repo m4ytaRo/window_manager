@@ -5,16 +5,15 @@ function get_button_settings (_name) {
 	//
 	/*
 	documentation
-	sprite data [sprite, sprite_index, scale, rotation, alpha]
 	*/
 	switch (_name) {
 		#region proba
-			case "proba":
+			case "ok_button_64x32":
 				pattern_		= undefined
 				txtparam_		= {text: "OK", center_horizontally: true, center_vertically: true, delta_x : 0	};
 				sprite_data_	= {sprite: undefined, index : -1, rotation : 0, scale : 0, alpha : 1};
 			break
-			case "close_button":
+			case "close_button_64x32":
 				pattern_		= undefined
 				txtparam_		= { text: "X", center_horizontally: true, center_vertically: true, delta_x : 0};
 				sprite_data_	= {sprite: undefined, index : -1, rotation : 0, scale : 0, alpha : 1};

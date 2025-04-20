@@ -35,7 +35,7 @@
   },
   "resources": [
     {"id":{"name":"wms_class_window","path":"scripts/wms_class_window/wms_class_window.yy",},},
-    {"id":{"name":"enums","path":"scripts/enums/enums.yy",},},
+    {"id":{"name":"wms_enums","path":"scripts/wms_enums/wms_enums.yy",},},
     {"id":{"name":"wms_helper_functions","path":"scripts/wms_helper_functions/wms_helper_functions.yy",},},
     {"id":{"name":"wms_class_surface_reference_handler","path":"scripts/wms_class_surface_reference_handler/wms_class_surface_reference_handler.yy",},},
     {"id":{"name":"macro_definitions","path":"scripts/macro_definitions/macro_definitions.yy",},},

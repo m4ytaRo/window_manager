@@ -20,11 +20,13 @@ function wms_button(_name, _coord_structure) constructor {
 	#endregion
 	
 	#region private methods
-	
+
 	#endregion
 	
 	#region public methods
-	
+		static draw_mode = function (_argument) {
+			
+		}
 	#endregion
 	
 }
