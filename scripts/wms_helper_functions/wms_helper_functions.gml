@@ -107,7 +107,7 @@ function draw_rectangle_custom(x1_, y1_, x2_, y2_, color, width) {
 	draw_set_color(c_white)
 }
 
-function draw_rectangle_sprited_custom (_structure, _coords) {
+function draw_rectangle_sprited_custom (_structure, _coords, _text_params) {
 	
 	var local_sprite = _structure.local_sprite;
 	
@@ -148,6 +148,10 @@ function draw_rectangle_sprited_custom (_structure, _coords) {
 		grad_clr_04 = _structure.gradient_settings.grad_clr_04
 	}
 	
+	var local_text = _text.text;
+	var local_font = _text.font;
+	var do_center = _text.do_center;
+	var average_width = _text.average_width
 
 	
 	if (background_sprite == undefined) {
@@ -171,6 +175,8 @@ function draw_rectangle_sprited_custom (_structure, _coords) {
 	draw_sprite_ext(local_sprite, rt_corner_index, localX + localXLen - lp_width/2*scale, localY + lp_height/2*scale, scale, scale, 0, c_white, 1);
 	draw_sprite_ext(local_sprite, lb_corner_index, localX + lp_width/2*scale, localY + localYLen - lp_height/2*scale, scale, scale, 0, c_white, 1);
 	draw_sprite_ext(local_sprite, rb_corner_index, localX + localXLen - lp_width/2*scale,localY + localYLen - lp_height/2*scale, scale, scale, 0, c_white, 1);
+
+
 }
 	
 function get_integer_from_string (_string) {

@@ -17,4 +17,11 @@ draw_rectangle_sprited_custom({
 	y : 64,
 	xlen : mouse_x - 64, 
 	ylen : mouse_y - 64
-})
+}, {
+	text : "aw",
+	font : fnt_main,
+	do_center : true,
+	average_width : 8
+} 
+
+)

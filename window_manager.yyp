@@ -35,6 +35,7 @@
   },
   "resources": [
     {"id":{"name":"wms_class_window","path":"scripts/wms_class_window/wms_class_window.yy",},},
+    {"id":{"name":"fnt_main","path":"fonts/fnt_main/fnt_main.yy",},},
     {"id":{"name":"wms_enums","path":"scripts/wms_enums/wms_enums.yy",},},
     {"id":{"name":"wms_helper_functions","path":"scripts/wms_helper_functions/wms_helper_functions.yy",},},
     {"id":{"name":"ob_main","path":"objects/ob_main/ob_main.yy",},},
