@@ -148,15 +148,16 @@ function draw_rectangle_sprited_custom (_structure, _coords, _text_params) {
 		grad_clr_04 = _structure.gradient_settings.grad_clr_04
 	}
 	
-	var local_text = _text.text;
-	var local_font = _text.font;
-	var do_center = _text.do_center;
-	var average_width = _text.average_width
+	var local_text = _text_params.text;
+	var local_font = _text_params.font;
+	var do_center = _text_params.do_center;
+	var average_width = _text_params.average_width
 
 	
 	if (background_sprite == undefined) {
 		draw_rectangle_color(localX, localY, localX + localXLen - 2, localY + localYLen - 2, grad_clr_01, grad_clr_02, grad_clr_03, grad_clr_04, false);
 	}
+	#region drawing borders
 	var additionalX =  (localXLen < 2*ls_w) ? 1 : 2
 	var additionalY =  (localYLen < 2*ls_h) ? 1 : 2
 	for (var i = 0; i < ((localXLen - ls_w * 2) div (ls_w) + additionalX); ++ i) {
@@ -171,11 +172,22 @@ function draw_rectangle_sprited_custom (_structure, _coords, _text_params) {
 	for (var i = 0; i < ((localYLen - ls_h * 2) div (ls_h) + additionalY); ++ i) {
 		draw_sprite_ext(local_sprite, r_side_index, localX + localXLen - ls_w/2, localY + ls_h / 2 + i * ls_h, scale, scale, 0, c_white, 1);
 	}
+	#endregion
+	#region drawing corner sprites
 	draw_sprite_ext(local_sprite, lt_corner_index, localX + lp_width/2*scale, localY + lp_height/2*scale, scale, scale, 0, c_white, 1);
 	draw_sprite_ext(local_sprite, rt_corner_index, localX + localXLen - lp_width/2*scale, localY + lp_height/2*scale, scale, scale, 0, c_white, 1);
 	draw_sprite_ext(local_sprite, lb_corner_index, localX + lp_width/2*scale, localY + localYLen - lp_height/2*scale, scale, scale, 0, c_white, 1);
 	draw_sprite_ext(local_sprite, rb_corner_index, localX + localXLen - lp_width/2*scale,localY + localYLen - lp_height/2*scale, scale, scale, 0, c_white, 1);
-
+	#endregion
+	#region text drawing
+	var prev_font = draw_get_font();
+	draw_set_font(fnt_main);
+	
+	var length = len(local_text)
+	draw_text_color(localX + localXLen / 2 - length * average_width / 2, localY + localYLen / 2, local_text, c_white, c_white, c_white, c_white, 1);
+	
+	draw_set_font(prev_font);
+	#endregion
 
 }
 	
