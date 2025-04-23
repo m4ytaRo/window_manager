@@ -18,7 +18,7 @@ draw_rectangle_sprited_custom({
 	xlen : mouse_x - 64, 
 	ylen : mouse_y - 64
 }, {
-	text : "Test button text",
+	text : "Open",
 	font : fnt_main,
 	do_center : true,
 	average_width : 8

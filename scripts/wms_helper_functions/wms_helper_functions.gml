@@ -184,7 +184,7 @@ function draw_rectangle_sprited_custom (_structure, _coords, _text_params) {
 	draw_set_font(fnt_main);
 	
 	var length = len(local_text)
-	draw_text_color(localX + localXLen / 2 - length * average_width / 2, localY + localYLen / 2, local_text, c_white, c_white, c_white, c_white, 1);
+	draw_text_color(localX + localXLen / 2 - length * average_width / 2, localY + localYLen / 2 - average_width / 2, local_text, c_white, c_white, c_white, c_white, 1);
 	
 	draw_set_font(prev_font);
 	#endregion
