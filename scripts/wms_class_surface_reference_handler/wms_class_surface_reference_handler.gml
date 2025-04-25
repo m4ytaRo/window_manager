@@ -12,47 +12,59 @@ function wms_surface_reference_handler() constructor {
 	surface_reference_list		= ds_list_create();		//stores single instances with parameters: name, xlen, ylen
 	surface_count = 0;
 	
-	push_reference("close_button_64x32", 64, 32);
-	push_reference("ok_button_64x32", 64, 32);
+	push_reference(WMS_OBJECT.BUTTON, "close_button_64x32", 64, 32);
+	push_reference(WMS_OBJECT.BUTTON, "ok_button_64x32", 64, 32);
 	
 	#region public methods
 	static draw_update_surfaces = function ()  {
 		for (var i = 0; i < len(surface_reference_list); ++i) {
-			var settings = get_button_settings(surface_reference_list[| i]);
-			var ds_map_pos = surface_reference_container[? surface_reference_list[| i]];
-			//we can do i * 3 instead, just checking whether we stored everything correctly
-			#region draw_surfaces
-				#region main surface
-					if (!surface_exists(surface_reference_container[| ds_map_pos])) {
-						surface_reference_container[| ds_map_pos] = surface_create(surface_reference_list[|i].xlen, surface_reference_list[|i].ylen)
-					}
-					surface_set_target(surface_reference_container[| ds_map_pos]);
-					wms_button.draw_mode(BUTTON_DRAW_MODE_TYPE.STANDARD);
-					surface_reset_target();
+			if (surface_reference_list[| i].type == WMS_OBJECT.BUTTON) {
+				var settings = get_button_settings(surface_reference_list[| i]);
+				var ds_map_pos = surface_reference_container[? surface_reference_list[| i]];
+				//we can do i * 3 instead, just checking whether we stored everything correctly
+				#region draw_surfaces
+					#region main surface
+						if (!surface_exists(surface_reference_container[| ds_map_pos])) {
+							surface_reference_container[| ds_map_pos] = surface_create(surface_reference_list[|i].xlen, surface_reference_list[|i].ylen)
+						}
+						surface_set_target(surface_reference_container[| ds_map_pos]);
+						wms_button.draw_mode(BUTTON_DRAW_MODE_TYPE.STANDARD);
+						surface_reset_target();
+					#endregion
+					
+					#region cursored surface
+						if (!surface_exists(surface_reference_container[| (ds_map_pos + 1)])) {
+							surface_reference_container[| (ds_map_pos + 1)] = surface_create(surface_reference_list[|i].xlen, surface_reference_list[|i].ylen)
+						}
+						surface_set_target(surface_reference_container[| (ds_map_pos + 1)]);
+						wms_button.draw_mode(BUTTON_DRAW_MODE_TYPE.CURSORED);
+						surface_reset_target();
+					#endregion
+					
+					#region activated surface
+						if (!surface_exists(surface_reference_container[| (ds_map_pos + 2)])) {
+							surface_reference_container[| (ds_map_pos + 2)] = surface_create(surface_reference_list[|i].xlen, surface_reference_list[|i].ylen)
+						}
+						surface_set_target(surface_reference_container[| (ds_map_pos + 2)]);
+						wms_button.draw_mode(BUTTON_DRAW_MODE_TYPE.ACTIVATED);
+						surface_reset_target();
+					#endregion
+					
+					#region pressed surface
+						if (!surface_exists(surface_reference_container[| (ds_map_pos + 3)])) {
+							surface_reference_container[| (ds_map_pos + 3)] = surface_create(surface_reference_list[|i].xlen, surface_reference_list[|i].ylen)
+						}
+						surface_set_target(surface_reference_container[| (ds_map_pos + 3)]);
+						wms_button.draw_mode(BUTTON_DRAW_MODE_TYPE.PRESSED);
+						surface_reset_target();
+					#endregion
+							
 				#endregion
-				
-				#region cursored surface
-					if (!surface_exists(surface_reference_container[| (ds_map_pos + 1)])) {
-						surface_reference_container[| (ds_map_pos + 1)] = surface_create(surface_reference_list[|i].xlen, surface_reference_list[|i].ylen)
-					}
-					surface_set_target(surface_reference_container[| (ds_map_pos + 1)]);
-					wms_button.draw_mode(BUTTON_DRAW_MODE_TYPE.CURSORED);
-					surface_reset_target();
-				#endregion
-				
-				#region activated surface
-					if (!surface_exists(surface_reference_container[| (ds_map_pos + 2)])) {
-						surface_reference_container[| (ds_map_pos + 2)] = surface_create(surface_reference_list[|i].xlen, surface_reference_list[|i].ylen)
-					}
-					surface_set_target(surface_reference_container[| (ds_map_pos + 2)]);
-					wms_button.draw_mode(BUTTON_DRAW_MODE_TYPE.ACTIVATED);
-					surface_reset_target();
-				#endregion
-						
-			#endregion
-
-			
+			}
 		}
+	}
+	static contains = function (_name) {
+		return ds_map_exists(surface_reference_map, _name)
 	}
 	static clean_up = function () {
 		ds_map_destroy(surface_reference_map);
@@ -60,12 +72,13 @@ function wms_surface_reference_handler() constructor {
 	#endregion
 	
 	#region private methods
-	static push_reference = function (_name, _xlen, _ylen) {
-		ds_list_add(surface_reference_list, {name: _name, xlen : _xlen, ylen : _ylen});
+	static push_reference = function (_type, _name, _xlen, _ylen) {
+		ds_list_add(surface_reference_list, {type: _type, name: _name, xlen : _xlen, ylen : _ylen});
 		ds_list_add(surface_reference_container, undefined);
 		ds_list_add(surface_reference_container, undefined);
 		ds_list_add(surface_reference_container, undefined);
-		ds_map_add(surface_reference_map, _name, surface_count*3);
+		ds_list_add(surface_reference_container, undefined);
+		ds_map_add(surface_reference_map, _name, surface_count*4);
 		++surface_count;
 	}
 	#endregion

@@ -1,3 +1,5 @@
+global.surface_reference_handler.draw_update_surfaces();
+
 draw_rectangle_sprited_custom({
 	local_sprite : sp_standard_button_borders,
 	lt_corner_index : 0, 
