@@ -8,6 +8,7 @@ function wms_button(_name, _coord_structure) constructor {
 		
 		surface_standard	= -1;
 		surface_cursored	= -1;
+		surface_pressed		= -1;
 		surface_activated	= -1;
 		
 		activated = false;
@@ -20,12 +21,17 @@ function wms_button(_name, _coord_structure) constructor {
 	#endregion
 	
 	#region private methods
-
+		static draw_update_surfaces = function () {
+			
+		}
+		static draw_mode = function (_argument) {
+			
+		}
 	#endregion
 	
 	#region public methods
-		static draw_mode = function (_argument) {
-			
+		static draw = function () {
+			draw_update_surfaces();
 		}
 	#endregion
 	

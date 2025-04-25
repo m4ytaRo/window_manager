@@ -1,0 +1,1 @@
+global.surface_reference_handler = new wms_class_surface_reference_handler();

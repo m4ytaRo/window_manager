@@ -40,6 +40,7 @@
     {"id":{"name":"wms_helper_functions","path":"scripts/wms_helper_functions/wms_helper_functions.yy",},},
     {"id":{"name":"ob_main","path":"objects/ob_main/ob_main.yy",},},
     {"id":{"name":"wms_class_surface_reference_handler","path":"scripts/wms_class_surface_reference_handler/wms_class_surface_reference_handler.yy",},},
+    {"id":{"name":"sp_standard_button_borders_pressed","path":"sprites/sp_standard_button_borders_pressed/sp_standard_button_borders_pressed.yy",},},
     {"id":{"name":"macro_definitions","path":"scripts/macro_definitions/macro_definitions.yy",},},
     {"id":{"name":"wms_class_button","path":"scripts/wms_class_button/wms_class_button.yy",},},
     {"id":{"name":"wms_implementers_and_fillers","path":"scripts/wms_implementers_and_fillers/wms_implementers_and_fillers.yy",},},
