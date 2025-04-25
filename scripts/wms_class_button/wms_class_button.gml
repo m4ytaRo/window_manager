@@ -18,6 +18,8 @@ function wms_button(_name, _coord_structure) constructor {
 		tick_clicked = false;
 		//
 		
+		name = _name
+		
 	#endregion
 	
 	#region private methods
@@ -66,10 +68,69 @@ function wms_button(_name, _coord_structure) constructor {
 	#endregion
 	
 	#region public methods
-		static draw = function () {
+		static draw = function (_delta_struc) {
+			var lx, ly;
+			if (_delta_struc == undefined) {
+				lx = x;
+				ly = y;
+			}
+			else {
+				lx = _delta_struc.x;
+				ly = _delta_struc.y;
+			}
 			draw_update_surfaces();
+			
+			if (tick_cursored) {
+				if (tick_clicked)
+					draw_surface(surface_pressed, lx, ly);
+				else
+					draw_surface(surface_cursored, lx, ly);
+			}
+			else 
+				if (activated)
+					draw_surface(surface_activated, lx, ly);
+				else
+					draw_surface(surface_standard, lx, ly);
 		}
 		static draw_mode = function (_argument) {
+
+			var settings = get_button_settings(name);
+
+			var pattern = settings.pattern
+			var txtparam = settings.txtparam
+			var sprite_data = settings.sprite_data
+			
+			switch (_argument) {
+				case BUTTON_DRAW_MODE_TYPE.STANDARD:
+					draw_rectangle_sprited_custom({
+					local_sprite : sp_standard_button_borders,
+					lt_corner_index : 0, 
+					rt_corner_index : 1, 
+					rb_corner_index : 2,
+					lb_corner_index : 3, 
+					
+					b_side_index  : 4,
+					r_side_index  : 5,
+					t_side_index  : 6,
+					l_side_index  : 7,
+					scale : 2,
+					background_sprite : undefined,
+					gradient_settings : {grad_clr_01 : c_gray, grad_clr_02 : c_gray, grad_clr_03 : c_gray, grad_clr_04 : c_gray}
+				}, {
+					x : 0,
+					y : 0,
+					xlen : xlen, 
+					ylen : ylen
+				}, {
+					text : txtparam.text,
+					font : fnt_main,
+					do_center : true,
+					average_width : 8
+				} 
+
+)
+				break
+			}
 			
 		}
 	#endregion

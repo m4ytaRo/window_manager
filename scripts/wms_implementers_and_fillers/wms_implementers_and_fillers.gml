@@ -18,6 +18,11 @@ function get_button_settings (_name) {
 				txtparam_		= { text: "X", center_horizontally: true, center_vertically: true, delta_x : 0};
 				sprite_data_	= {sprite: undefined, index : -1, rotation : 0, scale : 0, alpha : 1};
 			break
+			case "ok_button":
+				pattern_		= undefined
+				txtparam_		= {text: "OK", center_horizontally: true, center_vertically: true, delta_x : 0	};
+				sprite_data_	= {sprite: undefined, index : -1, rotation : 0, scale : 0, alpha : 1};
+			break
 			case "move_up_button":
 				pattern_		= undefined
 				txtparam_		= { text: "", center_horizontally: true, center_vertically: true, delta_x : 0};
