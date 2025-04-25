@@ -31,7 +31,7 @@ function wms_button(_name, _coord_structure) constructor {
 							surface_standard = surface_create(xlen, ylen)
 						}
 						surface_set_target(surface_standard);
-						wms_button.draw_mode(BUTTON_DRAW_MODE_TYPE.STANDARD);
+						draw_mode(BUTTON_DRAW_MODE_TYPE.STANDARD);
 						surface_reset_target();
 					#endregion
 					
@@ -40,7 +40,7 @@ function wms_button(_name, _coord_structure) constructor {
 							surface_cursored = surface_create(xlen, ylen)
 						}
 						surface_set_target(surface_cursored);
-						wms_button.draw_mode(BUTTON_DRAW_MODE_TYPE.CURSORED);
+						draw_mode(BUTTON_DRAW_MODE_TYPE.CURSORED);
 						surface_reset_target();
 					#endregion
 					
@@ -49,7 +49,7 @@ function wms_button(_name, _coord_structure) constructor {
 							surface_activated = surface_create(xlen, ylen)
 						}
 						surface_set_target(surface_activated);
-						wms_button.draw_mode(BUTTON_DRAW_MODE_TYPE.ACTIVATED);
+						draw_mode(BUTTON_DRAW_MODE_TYPE.ACTIVATED);
 						surface_reset_target();
 					#endregion
 					
@@ -58,7 +58,7 @@ function wms_button(_name, _coord_structure) constructor {
 							surface_pressed = surface_create(xlen, ylen)
 						}
 						surface_set_target(surface_pressed);
-						wms_button.draw_mode(BUTTON_DRAW_MODE_TYPE.PRESSED);
+						draw_mode(BUTTON_DRAW_MODE_TYPE.PRESSED);
 						surface_reset_target();
 					#endregion
 						
