@@ -19,7 +19,7 @@ function wms_surface_reference_handler() constructor {
 	static draw_update_surfaces = function ()  {
 		for (var i = 0; i < len(surface_reference_list); ++i) {
 			if (surface_reference_list[| i].type == WMS_OBJECT.BUTTON) {
-				var settings = get_button_settings(surface_reference_list[| i]);
+				var settings = get_button_settings(surface_reference_list[| i].name);
 				var ds_map_pos = surface_reference_container[? surface_reference_list[| i]];
 				//we can do i * 3 instead, just checking whether we stored everything correctly
 				#region draw_surfaces
@@ -28,7 +28,7 @@ function wms_surface_reference_handler() constructor {
 							surface_reference_container[| ds_map_pos] = surface_create(surface_reference_list[|i].xlen, surface_reference_list[|i].ylen)
 						}
 						surface_set_target(surface_reference_container[| ds_map_pos]);
-						wms_button.draw_mode(BUTTON_DRAW_MODE_TYPE.STANDARD);
+						wms_button.draw_mode(BUTTON_DRAW_MODE_TYPE.STANDARD, surface_reference_list[| i].name);
 						surface_reset_target();
 					#endregion
 					
@@ -37,7 +37,7 @@ function wms_surface_reference_handler() constructor {
 							surface_reference_container[| (ds_map_pos + 1)] = surface_create(surface_reference_list[|i].xlen, surface_reference_list[|i].ylen)
 						}
 						surface_set_target(surface_reference_container[| (ds_map_pos + 1)]);
-						wms_button.draw_mode(BUTTON_DRAW_MODE_TYPE.CURSORED);
+						wms_button.draw_mode(BUTTON_DRAW_MODE_TYPE.CURSORED, surface_reference_list[| i].name);
 						surface_reset_target();
 					#endregion
 					
@@ -46,7 +46,7 @@ function wms_surface_reference_handler() constructor {
 							surface_reference_container[| (ds_map_pos + 2)] = surface_create(surface_reference_list[|i].xlen, surface_reference_list[|i].ylen)
 						}
 						surface_set_target(surface_reference_container[| (ds_map_pos + 2)]);
-						wms_button.draw_mode(BUTTON_DRAW_MODE_TYPE.ACTIVATED);
+						wms_button.draw_mode(BUTTON_DRAW_MODE_TYPE.ACTIVATED, surface_reference_list[| i].name);
 						surface_reset_target();
 					#endregion
 					
@@ -55,7 +55,7 @@ function wms_surface_reference_handler() constructor {
 							surface_reference_container[| (ds_map_pos + 3)] = surface_create(surface_reference_list[|i].xlen, surface_reference_list[|i].ylen)
 						}
 						surface_set_target(surface_reference_container[| (ds_map_pos + 3)]);
-						wms_button.draw_mode(BUTTON_DRAW_MODE_TYPE.PRESSED);
+						wms_button.draw_mode(BUTTON_DRAW_MODE_TYPE.PRESSED, surface_reference_list[| i].name);
 						surface_reset_target();
 					#endregion
 							
