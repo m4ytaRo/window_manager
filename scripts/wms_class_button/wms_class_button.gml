@@ -92,9 +92,9 @@ function wms_button(_name, _coord_structure) constructor {
 				else
 					draw_surface(surface_standard, lx, ly);
 		}
-		static draw_mode = function (_argument) {
-
-			var settings = get_button_settings(name);
+		static draw_mode = function (_argument, _name) {
+			var local_name = (_name == undefined) ? name : _name
+			var settings = get_button_settings(local_name);
 
 			var pattern = settings.pattern
 			var txtparam = settings.txtparam
