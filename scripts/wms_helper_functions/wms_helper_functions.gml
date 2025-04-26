@@ -152,6 +152,7 @@ function draw_rectangle_sprited_custom (_structure, _coords, _text_params) {
 	var local_font = _text_params.font;
 	var do_center = _text_params.do_center;
 	var average_width = _text_params.average_width
+	var text_color = _text_params.color;
 
 	
 	if (background_sprite == undefined) {

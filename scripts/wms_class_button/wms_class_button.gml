@@ -107,33 +107,33 @@ function wms_button(_name, _coord_structure) constructor {
 					local_sprite : sp_standard_button_borders,
 					lt_corner_index : 0,	rt_corner_index : 1,	rb_corner_index : 2,	lb_corner_index : 3, 
 					b_side_index  : 4,		r_side_index  : 5,		t_side_index  : 6,		l_side_index  : 7,
-					scale : 2,				background_sprite : undefined,
+					scale : 3,				background_sprite : undefined,
 					gradient_settings : {grad_clr_01 : c_gray, grad_clr_02 : c_gray, grad_clr_03 : c_gray, grad_clr_04 : c_gray}
 					}, 
 					{x : 0, y : 0, xlen : xlen, ylen : ylen}, 
-					{text : txtparam.text, font : fnt_main, do_center : true, average_width : 8} )
+					{text : txtparam.text, font : fnt_main, do_center : true, average_width : 8, color : c_white} )
 				break
 				case BUTTON_DRAW_MODE_TYPE.CURSORED:
 					draw_rectangle_sprited_custom({
 					local_sprite : sp_standard_button_borders,
 					lt_corner_index : 0,	rt_corner_index : 1,	rb_corner_index : 2,	lb_corner_index : 3, 
 					b_side_index  : 4,		r_side_index  : 5,		t_side_index  : 6,		l_side_index  : 7,
-					scale : 2,				background_sprite : undefined,
+					scale : 3,				background_sprite : undefined,
 					gradient_settings : {grad_clr_01 : c_ltgray, grad_clr_02 : c_ltgray, grad_clr_03 : c_ltgray, grad_clr_04 : c_ltgray}
 					}, 
 					{x : 0, y : 0, xlen : xlen, ylen : ylen}, 
-					{text : txtparam.text, font : fnt_main, do_center : true, average_width : 8} )
+					{text : txtparam.text, font : fnt_main, do_center : true, average_width : 8, color : c_black} )
 				break
 				case BUTTON_DRAW_MODE_TYPE.PRESSED:
 					draw_rectangle_sprited_custom({
 					local_sprite : sp_standard_button_borders_pressed,
 					lt_corner_index : 0,	rt_corner_index : 1,	rb_corner_index : 2,	lb_corner_index : 3, 
 					b_side_index  : 4,		r_side_index  : 5,		t_side_index  : 6,		l_side_index  : 7,
-					scale : 2,				background_sprite : undefined,
+					scale : 3,				background_sprite : undefined,
 					gradient_settings : {grad_clr_01 : c_dkgray, grad_clr_02 : c_dkgray, grad_clr_03 : c_dkgray, grad_clr_04 : c_dkgray}
 					}, 
 					{x : 0, y : 0, xlen : xlen, ylen : ylen}, 
-					{text : txtparam.text, font : fnt_main, do_center : true, average_width : 8} )
+					{text : txtparam.text, font : fnt_main, do_center : true, average_width : 8, color : c_white} )
 				break
 			}
 			
