@@ -185,11 +185,126 @@ function draw_rectangle_sprited_custom (_structure, _coords, _text_params) {
 	draw_set_font(fnt_main);
 	
 	var length = len(local_text)
-	draw_text_color(localX + localXLen / 2 - length * average_width / 2, localY + localYLen / 2 - average_width / 2, local_text, c_white, c_white, c_white, c_white, 1);
+	draw_text_color(localX + localXLen / 2 - length * average_width / 2, localY + localYLen / 2 - average_width / 2, local_text, text_color, text_color, text_color, text_color, 1);
 	
 	draw_set_font(prev_font);
 	#endregion
 
+}
+	
+function draw_rectangle_pattern(_coords_struc, _pattern, _txtparam, _options, _sprite_data) {
+
+	#region documentation
+	/*
+	_options = [activated, cursored, etc.]
+	_txtparam = [{string}, {center_horizontally}, {center_vertically}, {delta_x}, {letter_width}, {letter_height}]
+	*/
+	#endregion
+	
+	var lx1 = _coords_struc.x
+	var ly1 = _coords_struc.y
+	var lx2 = _coords_struc.x + _coords_struc.xlen
+	var ly2 = _coords_struc.y + _coords_struc.ylen
+	
+	var activated	= _options.activated
+	var cursored	= _options.cursored
+	
+	var def_gradientmap_border, def_gradientmap_space
+	var act_gradientmap_border, act_gradientmap_space
+	var cur_gradientmap_border, cur_gradientmap_space
+	
+	switch (_pattern) { //working with gradient maps according to pattern
+		case DRAW_PATTERN_EBOX:
+			def_gradientmap_border	= gmap_clean_dkgray20
+			def_gradientmap_space	= gmap_dkgray40_dkgray20
+			
+			cur_gradientmap_border	= gmap_dkgray_gray
+			cur_gradientmap_space	= gmap_gray_white
+			
+			act_gradientmap_border	= gmap_lime_green
+			act_gradientmap_space	= gmap_green_lime
+		break
+		case DRAW_PATTERN_BUTTON:
+			def_gradientmap_border	= gmap_dkgray_gray
+			def_gradientmap_space	= gmap_gray_dkgray
+			
+			cur_gradientmap_border	= gmap_white_gray
+			cur_gradientmap_space	= gmap_gray_white
+			
+			act_gradientmap_border	= gmap_lime_green
+			act_gradientmap_space	= gmap_green_lime
+		break
+		default:
+			def_gradientmap_border	= gmap_dkgray_gray
+			def_gradientmap_space	= gmap_gray_dkgray
+			
+			cur_gradientmap_border	= gmap_white_gray
+			cur_gradientmap_space	= gmap_gray_white
+			
+			act_gradientmap_border	= gmap_lime_green
+			act_gradientmap_space	= gmap_green_lime
+		break
+	}
+	
+	#region choosing pattern according to mode (def, activated or cursored)
+	
+	var local_border_pattern, local_space_pattern
+	if activated {		local_border_pattern = act_gradientmap_border;
+						local_space_pattern = act_gradientmap_space}
+						
+	else if cursored {	local_border_pattern = cur_gradientmap_border;
+						local_space_pattern = cur_gradientmap_space}
+						
+	else	{			local_border_pattern = def_gradientmap_border;
+						local_space_pattern = def_gradientmap_space}
+	
+	draw_rectangle_color(lx1, ly1, lx2, ly2, local_space_pattern[0], local_space_pattern[1], local_space_pattern[2], local_space_pattern[3], false)
+	draw_rectangle_color(lx1 + 1, ly1 + 1, lx2 - 2, ly2 -2 , local_border_pattern[0], local_border_pattern[1], local_border_pattern[2], local_border_pattern[3], true)
+	
+	#endregion
+	
+	#region txt drawing
+	
+	var ltxtx = lx1
+	var ltxty = ly1
+	
+	var local_xlen = lx2 - lx1
+	var local_ylen = ly2 - ly1
+	
+	var str					= _txtparam.text
+	var center_horizontally = _txtparam.do_center
+	var center_vertically	= true
+	var delta_x				= 0
+	var average_width		= _txtparam.average_size
+	var average_height		= _txtparam.average_size
+	
+	
+	if center_horizontally {ltxtx = ltxtx + local_xlen/2 - letter_width*len(str)}
+	if center_vertically {ltxty = ltxty + local_ylen/2 - letter_height}
+	if cursored draw_set_color(c_dkgray)
+	draw_text(ltxtx + delta_x, ltxty, str)
+	draw_set_color(c_white)
+	#endregion
+	
+	#region sprite drawing
+	if (_sprite_data != undefined) {
+		var lsprx		= _sprite_data[2]
+		var lspry		= _sprite_data[3]
+		
+		var lspr		= _sprite_data[0]
+		
+		var lspr_index	= _sprite_data[1]
+		
+		var lspr_scale = _sprite_data[4]
+		
+		if lspr != undefined {
+			draw_sprite_ext(lspr, lspr_index, lsprx, lspry, lspr_scale, lspr_scale, 0, c_white, 1)
+		}
+	}
+
+	
+	#endregion
+	
 }
 	
 function get_integer_from_string (_string) {

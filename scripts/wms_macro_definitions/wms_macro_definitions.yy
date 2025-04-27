@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "macro_definitions",
+  "name": "wms_macro_definitions",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
