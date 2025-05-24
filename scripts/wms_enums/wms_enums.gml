@@ -9,10 +9,24 @@ enum WINDOW_SURFACES {
 }
 
 enum BUTTON_DRAW_MODE_TYPE {
-	STANDARD,
+	DEF,
 	CURSORED,
 	ACTIVATED,
 	PRESSED
+}
+
+enum DRAW_MODE_TYPE { 
+	//it will probably repeat button and ebox draw mode types
+	//however it makes more sense
+	DEF,
+	CURSORED,
+	ACTIVATED,
+	PRESSED
+}
+
+enum DRAW_PATTERN {
+	EBOX,
+	BUTTON
 }
 
 enum WMS_OBJECT {

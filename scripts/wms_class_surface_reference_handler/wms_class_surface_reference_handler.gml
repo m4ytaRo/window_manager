@@ -28,7 +28,7 @@ function wms_surface_reference_handler() constructor {
 							surface_reference_container[| ds_map_pos] = surface_create(surface_reference_list[|i].xlen, surface_reference_list[|i].ylen)
 						}
 						surface_set_target(surface_reference_container[| ds_map_pos]);
-						wms_button.draw_mode(BUTTON_DRAW_MODE_TYPE.STANDARD, surface_reference_list[| i].name);
+						wms_button.draw_mode(BUTTON_DRAW_MODE_TYPE.DEF, surface_reference_list[| i].name);
 						surface_reset_target();
 					#endregion
 					

@@ -14,6 +14,9 @@
 	#macro gmap_gray_dkgray	[c_gray, c_gray, c_dkgray, c_dkgray]
 	#macro gmap_dkgray_gray	[c_dkgray, c_dkgray, c_gray, c_gray]
 	
+	#macro gmap_dkgray_dkgray40	[c_dkgray, c_dkgray, c_dkgray_40, c_dkgray_40]
+	#macro gmap_dkgray40_dkgray	[c_dkgray_40, c_dkgray_40, c_dkgray, c_dkgray]
+	
 	#macro gmap_dkgray40_dkgray20	[c_dkgray_40, c_dkgray_40, c_dkgray_20, c_dkgray_20]
 	#macro gmap_dkgray20_dkgray40	[c_dkgray_20, c_dkgray_20, c_dkgray_40, c_dkgray_40]
 	

@@ -1,4 +1,4 @@
-function wms_button(_name, _coord_structure) constructor {
+function wms_button(_name, _coord_structure, _parent, _filler_structure) constructor {
 	
 	#region local variables
 		x = _coord_structure.x
@@ -16,10 +16,27 @@ function wms_button(_name, _coord_structure) constructor {
 		//tick variables
 		tick_cursored = false;
 		tick_clicked = false;
-		//
 		
 		name = _name
+		parent = _parent;
 		
+	#endregion
+	
+	#region filling
+	
+	
+	if ( _filler_structure != undefined && variable_struct_exists(_filler_structure, "click_function")) {
+		self.click_function = _filler_structure.click_function
+		implement_click = function () {
+			click_function(parent);
+		}
+	}
+	else {
+		implement_click = function () {
+			
+		}
+	}
+	
 	#endregion
 	
 	#region private methods
@@ -31,7 +48,7 @@ function wms_button(_name, _coord_structure) constructor {
 							surface_standard = surface_create(xlen, ylen)
 						}
 						surface_set_target(surface_standard);
-						draw_mode(BUTTON_DRAW_MODE_TYPE.STANDARD);
+						draw_mode(BUTTON_DRAW_MODE_TYPE.DEF);
 						surface_reset_target();
 					#endregion
 					
@@ -101,20 +118,20 @@ function wms_button(_name, _coord_structure) constructor {
 			var txtparam = settings.txtparam;
 			var sprite_data = settings.sprite_data;
 			
-			coord_structure = {x : x, y : y, xlen : xlen, ylen : ylen}
+			coord_structure = {x : 0, y : 0, xlen : xlen, ylen : ylen}
 			
 			switch (_argument) {
-				case BUTTON_DRAW_MODE_TYPE.STANDARD:
-					draw_rectangle_pattern(coord_structure, pattern, txtparam, _argument, [undefined, -1, 0, 0, 1])
+				case BUTTON_DRAW_MODE_TYPE.DEF:
+					draw_rectangle_pattern(coord_structure, pattern, txtparam, DRAW_MODE_TYPE.DEF, [undefined, -1, 0, 0, 1])
 				break
 				case BUTTON_DRAW_MODE_TYPE.CURSORED:
-					draw_rectangle_pattern(coord_structure, pattern, txtparam, _argument, [undefined, -1, 0, 0, 1])
+					draw_rectangle_pattern(coord_structure, pattern, txtparam, DRAW_MODE_TYPE.CURSORED, [undefined, -1, 0, 0, 1])
 				break
 				case BUTTON_DRAW_MODE_TYPE.PRESSED:
-					draw_rectangle_pattern(coord_structure, pattern, txtparam, _argument, [undefined, -1, 0, 0, 1])
+					draw_rectangle_pattern(coord_structure, pattern, txtparam, DRAW_MODE_TYPE.PRESSED, [undefined, -1, 0, 0, 1])
 				break
-				case BUTTON_DRAW_MODE_TYPE.PRESSED:
-					draw_rectangle_pattern(coord_structure, pattern, txtparam, _argument, [undefined, -1, 0, 0, 1])
+				case BUTTON_DRAW_MODE_TYPE.ACTIVATED:
+					draw_rectangle_pattern(coord_structure, pattern, txtparam, DRAW_MODE_TYPE.ACTIVATED, [undefined, -1, 0, 0, 1])
 				break
 			}
 			
