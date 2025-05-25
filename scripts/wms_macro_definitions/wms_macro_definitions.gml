@@ -1,4 +1,5 @@
 #macro nullptr pointer_null
+#macro STD_FONT draw_get_font()
 
 #region colors
 	#macro c_dkgray_40 make_color_hsv(200, 0, 40)

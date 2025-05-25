@@ -210,6 +210,7 @@ function draw_rectangle_pattern(_coords_struc, _pattern, _txtparam, _options, _s
 	var def_gradientmap_border, def_gradientmap_space
 	var act_gradientmap_border, act_gradientmap_space
 	var cur_gradientmap_border, cur_gradientmap_space
+	var prsd_gradientmap_border, prsd_gradientmap_space
 	
 	switch (_pattern) { //working with gradient maps according to pattern
 		case DRAW_PATTERN.EBOX:
@@ -221,6 +222,9 @@ function draw_rectangle_pattern(_coords_struc, _pattern, _txtparam, _options, _s
 			
 			act_gradientmap_border	= gmap_lime_green
 			act_gradientmap_space	= gmap_green_lime
+			
+			prsd_gradientmap_border = gmap_white_gray
+			prsd_gradientmap_space = gmap_gray_white
 		break
 		case DRAW_PATTERN.BUTTON:
 			def_gradientmap_border	= gmap_gray_dkgray
@@ -231,6 +235,9 @@ function draw_rectangle_pattern(_coords_struc, _pattern, _txtparam, _options, _s
 			
 			act_gradientmap_border	= gmap_lime_green
 			act_gradientmap_space	= gmap_green_lime
+			
+			prsd_gradientmap_border = gmap_white_gray
+			prsd_gradientmap_space = gmap_gray_white
 		break
 		default:
 			def_gradientmap_border	= gmap_dkgray_gray
@@ -241,6 +248,9 @@ function draw_rectangle_pattern(_coords_struc, _pattern, _txtparam, _options, _s
 			
 			act_gradientmap_border	= gmap_lime_green
 			act_gradientmap_space	= gmap_green_lime
+			
+			prsd_gradientmap_border = gmap_white_gray
+			prsd_gradientmap_space = gmap_gray_white
 		break
 	}
 	
@@ -252,8 +262,8 @@ function draw_rectangle_pattern(_coords_struc, _pattern, _txtparam, _options, _s
 						
 	else if _options == DRAW_MODE_TYPE.CURSORED {	local_border_pattern = cur_gradientmap_border;
 						local_space_pattern = cur_gradientmap_space}
-	else if _options == DRAW_MODE_TYPE.PRESSED {	local_border_pattern = cur_gradientmap_border;
-						local_space_pattern = cur_gradientmap_space}//!!!!	
+	else if _options == DRAW_MODE_TYPE.PRESSED {	local_border_pattern = prsd_gradientmap_border;
+						local_space_pattern = prsd_gradientmap_space}	
 				
 	else	{			local_border_pattern = def_gradientmap_border;
 						local_space_pattern = def_gradientmap_space}
@@ -273,9 +283,10 @@ function draw_rectangle_pattern(_coords_struc, _pattern, _txtparam, _options, _s
 	
 	var str					= _txtparam.text
 	var center_horizontally = _txtparam.center_horizontally
+	var font				= _txtparam.font;
 	var center_vertically	= true
 	var delta_x				= 0
-	var average_width		= 8
+	var average_width		= _txtparam.average_sizes[0]
 	var average_height		= 8
 	//var average_width		= _txtparam.average_size
 	//var average_height		= _txtparam.average_size
@@ -283,7 +294,7 @@ function draw_rectangle_pattern(_coords_struc, _pattern, _txtparam, _options, _s
 	
 	if center_horizontally {ltxtx = ltxtx + local_xlen/2 - average_width*len(str)}
 	if center_vertically {ltxty = ltxty + local_ylen/2 - average_width}
-	if _options == DRAW_MODE_TYPE.PRESSED draw_set_color(c_dkgray)
+	if _options == DRAW_MODE_TYPE.PRESSED draw_set_color(c_dkgray_20)
 	draw_text(ltxtx + delta_x, ltxty, str)
 	draw_set_color(c_white)
 	#endregion
