@@ -55,13 +55,15 @@ function wms_window (_name, _coord_structure) constructor {
 	
 	#region private methods
 	static draw_update_surfaces = function () {
-		//function will be placed in the start of draw_main() and will
+		//function will be placed in the start of draw() and will
 		//always check whether surfaces exists or not
 		
 	}
 	
 	static surface_draw = function (_argument) {
 		//function just draws surface depending on _argument
+		//implementation should be hidden from user, bacause
+		//	draw_update_surface is implemented to work with user
 		switch (_argument) {
 			case WINDOW_SURFACES.MAIN_SURFACE:
 				for (var i = 0; i < len(main_container); ++i) {
@@ -80,7 +82,7 @@ function wms_window (_name, _coord_structure) constructor {
 	#endregion
 	
 	#region public methods
-	static draw_main = function () {
+	static draw = function () {
 		
 	}
 	static draw_update_surface = function (_argument, _no_excuses) {
